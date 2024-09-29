@@ -1,0 +1,128 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+header{
+    background-color: blueviolet;
+    width: 100%;
+}
+
+/* nav */
+header >:first-child{
+    max-width: 90rem;
+    padding: 1.25rem;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* logo */
+header >:first-child >:first-child{
+    width: 6.25rem;
+}
+
+/* ul */
+header >:first-child>:last-child{
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    gap: 1.25rem;
+}
+
+footer{
+    width: 100%;
+    background-color: blueviolet;
+}
+
+/* footer section */
+
+footer >:first-child{
+    max-width: 90rem;
+    padding: 1.25rem;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3.125rem;
+}
+
+/* Logo */
+footer >:first-child >:first-child{
+    width: 18.75rem;
+}
+
+/* lista */
+
+footer >:first-child >:nth-child(2){
+
+}
+
+/* subscribirse */
+footer >:first-child >:last-child{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .625rem;
+}
+
+/* CSS main */
+main>:first-child{
+    max-width: 90rem;
+    padding: 1.25rem;
+    margin: 2.5rem auto;
+}
+
+/* h1 */
+
+main >:first-child >:first-child{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* table */
+main :first-child >:last-child{
+    width: 80%;
+    margin: 0 auto; /* Centra la tabla en la página */
+    border-collapse: collapse; /* Elimina los espacios entre bordes */
+}
+
+/* tr */
+
+main :first-child >:last-child  tr{
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px;
+    text-align: center;
+    border-bottom: 2px solid #ddd;
+}
+
+/* td */
+
+main :first-child >:last-child  td{
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+/* button */
+main :first-child >:last-child  td button{
+    padding: 8px 16px;
+    background-color: purple;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
