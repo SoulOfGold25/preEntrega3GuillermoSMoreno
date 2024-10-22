@@ -1,96 +1,57 @@
-let primerEst = { id: 1, disponible: true };
-let segundoEst = { id: 2, disponible: true };
-let tercerEst = { id: 3, disponible: true };
-let cuartoEst = { id: 4, disponible: true };
-let quintoEst = { id: 5, disponible: true };
+let estacionamientos = [
+    { id: 1, disponible: true },
+    { id: 2, disponible: true },
+    { id: 3, disponible: true },
+    { id: 4, disponible: true },
+    { id: 5, disponible: true }
+];
 
 // Función para ver estado de un estacionamiento
 function estadoEstacionamiento() {
-    let estado = "";
-    if (primerEst.disponible) {
-        estado += "Estacionamiento 1: Disponible\n";
-    } else {
-        estado += "Estacionamiento 1: Ocupado\n";
-    }
-
-    if (segundoEst.disponible) {
-        estado += "Estacionamiento 2: Disponible\n";
-    } else {
-        estado += "Estacionamiento 2: Ocupado\n";
-    }
-
-    if (tercerEst.disponible) {
-        estado += "Estacionamiento 3: Disponible\n";
-    } else {
-        estado += "Estacionamiento 3: Ocupado\n";
-    }
-
-    if (cuartoEst.disponible) {
-        estado += "Estacionamiento 4: Disponible\n";
-    } else {
-        estado += "Estacionamiento 4: Ocupado\n";
-    }
-
-    if (quintoEst.disponible) {
-        estado += "Estacionamiento 5: Disponible\n";
-    } else {
-        estado += "Estacionamiento 5: Ocupado\n";
-    }
-
+    let estado = estacionamientos.map( est => `Estacionamiento ${est.id}: ${est.disponible ? 'Disponible' : 'Ocupado'}`).join("\n")/* .join("\n") salto de linea en todo el array*/;
     alert(estado);
+}
+
+// Función para buscar un estacionamiento por su número
+function buscarEstacionamiento(id) {
+    return estacionamientos.find(est => est.id === id);
 }
 
 // Función para reservar un estacionamiento
 function reservarEstacionamiento(numeroEstacionamiento) {
-    if (numeroEstacionamiento === 1 && primerEst.disponible) {
-        primerEst.disponible = false;
-        console.log("¡Has reservado el estacionamiento Nº 1!");
-    } else if (numeroEstacionamiento === 2 && segundoEst.disponible) {
-        segundoEst.disponible = false;
-        console.log("¡Has reservado el estacionamiento Nº 2!");
-    } else if (numeroEstacionamiento === 3 && tercerEst.disponible) {
-        tercerEst.disponible = false;
-        console.log("¡Has reservado el estacionamiento Nº 3!");
-    } else if (numeroEstacionamiento === 4 && cuartoEst.disponible) {
-        cuartoEst.disponible = false;
-        console.log("¡Has reservado el estacionamiento Nº 4!");
-    } else if (numeroEstacionamiento === 5 && quintoEst.disponible) {
-        quintoEst.disponible = false;
-        console.log("¡Has el estacionamiento Nº 5!");
+    if (isNaN(numeroEstacionamiento) || numeroEstacionamiento < 1 || numeroEstacionamiento > 5) {
+        alert("Por favor, ingrese un número de estacionamiento válido (1-5).");
+        return;
+    }
+
+    let estacionamiento = buscarEstacionamiento(numeroEstacionamiento);
+
+    if (estacionamiento && estacionamiento.disponible) {
+        estacionamiento.disponible = false;
+        alert(`¡Has reservado el estacionamiento Nº ${estacionamiento.id}!`);
     } else {
-        console.log(
-            "El estacionamiento Nº ${numeroEstacionamiento} no está disponible o no existe."
-        );
-        console.log(
-            "Por favor, vuelve a intentarlo con otro Nº de estacionamiento"
-        );
+        alert(`El estacionamiento Nº ${numeroEstacionamiento} no está disponible.`);
     }
 }
 
 // Función para liberar un estacionamiento
 function liberarEstacionamiento(numeroEstacionamiento) {
-    if (numeroEstacionamiento === 1 && !primerEst.disponible) {
-        primerEst.disponible = true;
-        alert("Has liberado el estacionamiento Nº 1.");
-    } else if (numeroEstacionamiento === 2 && !segundoEst.disponible) {
-        segundoEst.disponible = true;
-        alert("Has el estacionamiento Nº 2.");
-    } else if (numeroEstacionamiento === 3 && !tercerEst.disponible) {
-        tercerEst.disponible = true;
-        alert("Has el estacionamiento Nº 3.");
-    } else if (numeroEstacionamiento === 4 && !cuartoEst.disponible) {
-        cuartoEst.disponible = true;
-        alert("Has el estacionamiento Nº 4.");
-    } else if (numeroEstacionamiento === 5 && !quintoEst.disponible) {
-        quintoEst.disponible = true;
-        alert("Has liberado el estacionamiento Nº 5.");
+    if (isNaN(numeroEstacionamiento) || numeroEstacionamiento < 1 || numeroEstacionamiento > 5) {
+        alert("Por favor, ingrese un número de estacionamiento válido (1-5).");
+        return;
+    }
+
+    let estacionamiento = buscarEstacionamiento(numeroEstacionamiento);
+
+    if (estacionamiento && !estacionamiento.disponible) {
+        estacionamiento.disponible = true;
+        alert(`Has liberado el estacionamiento Nº ${estacionamiento.id}.`);
     } else {
-        alert(
-            `el estacionamiento Nº ${numeroEstacionamiento} ya está disponible o no existe.`
-        );
+        alert(`El estacionamiento Nº ${numeroEstacionamiento} actualmente ya está disponible.`);
     }
 }
 
+// Función principal del simulador
 function simuladorEstacionamiento() {
     let continuar = true;
 
@@ -101,27 +62,31 @@ function simuladorEstacionamiento() {
             )
         );
 
-        if (opcion === 1) {
-            estadoEstacionamiento();
-        } else if (opcion === 2) {
-            const numeroPlaza = parseInt(
-                prompt(
-                    "Ingrese el número del estacionamiento que desea reservar (1-5):"
-                )
-            );
-            reservarEstacionamiento(numeroPlaza);
-        } else if (opcion === 3) {
-            const numeroPlaza = parseInt(
-                prompt("Ingrese el número de estacionamiento que desea liberar (1-5):")
-            );
-            liberarEstacionamiento(numeroPlaza);
-        } else if (opcion === 4) {
-            continuar = false; // Salgo del ciclo
-            alert("Gracias por usar el sistema de reservas de estacionamiento.");
-        } else {
-            alert("Opción no válida. Intente de nuevo.");
+        switch(opcion) {
+            case 1:
+                estadoEstacionamiento();
+                break;
+            case 2:
+                const numeroReservar = parseInt(
+                    prompt("Ingrese el número del estacionamiento que desea reservar (1-5):")
+                );
+                reservarEstacionamiento(numeroReservar);
+                break;
+            case 3:
+                const numeroLiberar = parseInt(
+                    prompt("Ingrese el número del estacionamiento que desea liberar (1-5):")
+                );
+                liberarEstacionamiento(numeroLiberar);
+                break;
+            case 4:
+                continuar = false;
+                alert("Gracias por usar el sistema de reservas de estacionamiento.");
+                break;
+            default:
+                alert("Opción no válida. Intente de nuevo.");
         }
     }
 }
 
+// Iniciar simulador
 simuladorEstacionamiento();
