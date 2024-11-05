@@ -3,75 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Estacionamiento - Reserva</title>
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
     <header>
-        <nav>
-            <img src="./assets/onePieceLogo.webp" alt="Nuestro logo, calabera pirata con sombrero de paja">
+        <nav aria-label="Navegación principal">
+            <img src="./assets/onePieceLogo.webp" alt="Nuestro logo, calavera pirata con sombrero de paja">
             <ul>
-                <li><a href="">Inicio</a></li>
-                <li><a href="">Inicio</a></li>
-                <li><a href="">Inicio</a></li>
-                <li><a href="">Inicio</a></li>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#faq">FAQ</a></li>
             </ul>
         </nav>
     </header>
+
     <main>
-        <section>
-            <h1>Estacionamiento</h1>
-            <h2>Reserva</h2>
-            <table>
+        <section aria-labelledby="estacionamiento">
+            <h1 id="estacionamiento">Estacionamiento</h1>
+            <h2>Reserva tu lugar</h2>
+            <br>
+            <table id="tabla-estacionamientos">
                 <tr>
-                    <td>Numero de estacionamiento</td>
-                    <td>Estado</td>
-                    <td>Reservar</td>
+                    <th>Número</th>
+                    <th>Estado</th>
+                    <th>Hora de Entrada</th>
+                    <th>Hora de Salida</th>
+                    <th>Total a Pagar</th>
+                    <th>Acción</th>
                 </tr>
                 <tr>
                     <td>1</td>
-                    <td>Ocupado</td>
-                    <td><button>reservar</button></td>
+                    <td id="estado-1">Disponible</td>
+                    <td id="hora-entrada-1">N/A</td>
+                    <td id="hora-salida-1">N/A</td>
+                    <td id="total-1">N/A</td>
+                    <td>
+                        <button class="reservar" data-id="1">Reservar</button>
+                        <button class="liberar" data-id="1" disabled>Liberar</button>
+                        <button class="pagar" data-id="1" disabled>Pagar</button>
+                    </td>
                 </tr>
                 <tr>
                     <td>2</td>
-                    <td>Disponible</td>
-                    <td><button>reservar</button></td>
+                    <td id="estado-2">Disponible</td>
+                    <td id="hora-entrada-2">N/A</td>
+                    <td id="hora-salida-2">N/A</td>
+                    <td id="total-2">N/A</td>
+                    <td>
+                        <button class="reservar" data-id="2">Reservar</button>
+                        <button class="liberar" data-id="2" disabled>Liberar</button>
+                    </td>
                 </tr>
                 <tr>
                     <td>3</td>
-                    <td>Ocupado</td>
-                    <td><button>reservar</button></td>
+                    <td id="estado-3">Disponible</td>
+                    <td id="hora-entrada-3">N/A</td>
+                    <td id="hora-salida-3">N/A</td>
+                    <td id="total-3">N/A</td>
+                    <td>
+                        <button class="reservar" data-id="3">Reservar</button>
+                        <button class="liberar" data-id="3" disabled>Liberar</button>
+                    </td>
                 </tr>
                 <tr>
                     <td>4</td>
-                    <td>Disponible</td>
-                    <td><button>reservar</button></td>
+                    <td id="estado-4">Disponible</td>
+                    <td id="hora-entrada-4">N/A</td>
+                    <td id="hora-salida-4">N/A</td>
+                    <td id="total-4">N/A</td>
+                    <td>
+                        <button class="reservar" data-id="4">Reservar</button>
+                        <button class="liberar" data-id="4" disabled>Liberar</button>
+                    </td>
                 </tr>
                 <tr>
                     <td>5</td>
-                    <td>Ocupado</td>
-                    <td><button>reservar</button></td>
+                    <td id="estado-5">Disponible</td>
+                    <td id="hora-entrada-5">N/A</td>
+                    <td id="hora-salida-5">N/A</td>
+                    <td id="total-5">N/A</td>
+                    <td>
+                        <button class="reservar" data-id="5">Reservar</button>
+                        <button class="liberar" data-id="5" disabled>Liberar</button>
+                    </td>
                 </tr>
             </table>
+            
         </section>
     </main>
+
     <footer>
-        <section>
-            <img src="./assets/onePieceLogo.webp" alt="Nuestro logo, calabera pirata con sombrero de paja">
+        <section aria-label="Información de contacto y subscripción">
+            <img src="./assets/onePieceLogo.webp" alt="Nuestro logo, calavera pirata con sombrero de paja">
             <ul>
-                <li><a href="">Conocenos</a></li>
-                <li><a href="">Conocenos</a></li>
-                <li><a href="">Conocenos</a></li>
-                <li><a href="">Conocenos</a></li>
+                <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
+                <li><a href="#nuestra-mision">Nuestra Misión</a></li>
+                <li><a href="#equipo">Nuestro Equipo</a></li>
+                <li><a href="#blog">Blog</a></li>
             </ul>
             <article>
-                <p><b>SUBSCRIBIRSE</b></p>
-                <input type="text" placeholder="Email">
-                <button>Subscribir</button>
+                <p><strong>SUBSCRÍBETE</strong></p>
+                <label for="email">Ingresa tu email:</label>
+                <input type="email" id="email" placeholder="Email" aria-label="Email para suscripción">
+                <button type="button">Subscribir</button>
             </article>
         </section>
     </footer>
+
     <script src="./js/index.js"></script>
 </body>
 </html>
