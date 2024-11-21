@@ -1,118 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Estacionamiento - Reserva</title>
-    <link rel="stylesheet" href="./css/style.css">
+    <!-- <link rel="stylesheet" href="./css/style.css"> -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
+
 <body>
     <header>
-        <nav aria-label="Navegación principal">
-            <img src="./assets/onePieceLogo.webp" alt="Nuestro logo, calavera pirata con sombrero de paja">
-            <ul>
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#servicios">Servicios</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-                <li><a href="#faq">FAQ</a></li>
-            </ul>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <!-- Logo -->
+                <a class="navbar-brand" href="#">
+                    <img src="./assets/onePieceLogo.webp" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
+                    Estacionamientos
+                </a>
+
+                <!-- Botón colapsable en pantallas pequeñas -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Contenido del navbar -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Servicios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contacto</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Más
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#faq">FAQ</a></li>
+                                <li><a class="dropdown-item" href="#blog">Blog</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#equipo">Nuestro Equipo</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </nav>
     </header>
 
-    <main>
-        <section aria-labelledby="estacionamiento">
-            <h1 id="estacionamiento">Estacionamiento</h1>
+    <main class="container my-5 p-4 bg-white shadow rounded">
+        <section class="container mt-5">
+            <h1 class="text-center">Estacionamiento</h1>
+            <p class="lead text-center">
+                Reserva, libera y paga tus estacionamientos fácilmente.
+            </p>
             <h2>Reserva tu lugar</h2>
-            <br>
-            <table id="tabla-estacionamientos">
-                <tr>
-                    <th>Número</th>
-                    <th>Estado</th>
-                    <th>Hora de Entrada</th>
-                    <th>Hora de Salida</th>
-                    <th>Total a Pagar</th>
-                    <th>Acción</th>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td id="estado-1">Disponible</td>
-                    <td id="hora-entrada-1">N/A</td>
-                    <td id="hora-salida-1">N/A</td>
-                    <td id="total-1">N/A</td>
-                    <td>
-                        <button class="reservar" data-id="1">Reservar</button>
-                        <button class="liberar" data-id="1" disabled>Liberar</button>
-                        <button class="pagar" data-id="1" disabled>Pagar</button>
-                        <!-- Estoy trabajando en el boton pagar, por falta de tiempo no lo desarrolle -->
-                    </td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td id="estado-2">Disponible</td>
-                    <td id="hora-entrada-2">N/A</td>
-                    <td id="hora-salida-2">N/A</td>
-                    <td id="total-2">N/A</td>
-                    <td>
-                        <button class="reservar" data-id="2">Reservar</button>
-                        <button class="liberar" data-id="2" disabled>Liberar</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td id="estado-3">Disponible</td>
-                    <td id="hora-entrada-3">N/A</td>
-                    <td id="hora-salida-3">N/A</td>
-                    <td id="total-3">N/A</td>
-                    <td>
-                        <button class="reservar" data-id="3">Reservar</button>
-                        <button class="liberar" data-id="3" disabled>Liberar</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td id="estado-4">Disponible</td>
-                    <td id="hora-entrada-4">N/A</td>
-                    <td id="hora-salida-4">N/A</td>
-                    <td id="total-4">N/A</td>
-                    <td>
-                        <button class="reservar" data-id="4">Reservar</button>
-                        <button class="liberar" data-id="4" disabled>Liberar</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td id="estado-5">Disponible</td>
-                    <td id="hora-entrada-5">N/A</td>
-                    <td id="hora-salida-5">N/A</td>
-                    <td id="total-5">N/A</td>
-                    <td>
-                        <button class="reservar" data-id="5">Reservar</button>
-                        <button class="liberar" data-id="5" disabled>Liberar</button>
-                    </td>
-                </tr>
-            </table>
-            
+            <div class="table-responsive">
+                <table id="tablaEstacionamiento" class="table table-bordered table-striped text-center">
+                    <thead class="table-dark">
+                    </thead>
+                </table>
+            </div>
         </section>
     </main>
 
-    <footer>
-        <section aria-label="Información de contacto y subscripción">
-            <img src="./assets/onePieceLogo.webp" alt="Nuestro logo, calavera pirata con sombrero de paja">
-            <ul>
-                <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
-                <li><a href="#nuestra-mision">Nuestra Misión</a></li>
-                <li><a href="#equipo">Nuestro Equipo</a></li>
-                <li><a href="#blog">Blog</a></li>
-            </ul>
-            <article>
-                <p><strong>SUBSCRÍBETE</strong></p>
-                <label for="email">Ingresa tu email:</label>
-                <input type="email" id="email" placeholder="Email" aria-label="Email para suscripción">
-                <button type="button">Subscribir</button>
-            </article>
-        </section>
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <img src="./assets/onePieceLogo.webp" alt="Logo" width="100px" height="100px" class="mb-2">
+                    <p>Estacionamientos seguros y cómodos. Estamos aquí para brindarte el mejor servicio.</p>
+                </div>
+    
+                <div class="col-md-4 mb-3">
+                    <h5>Enlaces útiles</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#sobre-nosotros" class="text-white text-decoration-none">Sobre Nosotros</a></li>
+                        <li><a href="#nuestra-mision" class="text-white text-decoration-none">Nuestra Misión</a></li>
+                        <li><a href="#equipo" class="text-white text-decoration-none">Nuestro Equipo</a></li>
+                        <li><a href="#blog" class="text-white text-decoration-none">Blog</a></li>
+                    </ul>
+                </div>
+    
+                <div class="col-md-4">
+                    <h5>Subscríbete</h5>
+                    <form>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Correo electrónico</label>
+                            <input type="email" id="email" class="form-control" placeholder="Tu email">
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Subscribir</button>
+                    </form>
+                </div>
+            </div>
+    
+            <hr class="my-4 border-light">
+            <div class="row mt-3">
+                <div class="col text-center">
+                    <p class="mb-0">&copy; 2024 Estacionamientos. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </div>
     </footer>
 
     <script src="./js/index.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </body>
+
 </html>

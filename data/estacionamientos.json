@@ -1,0 +1,7 @@
+[
+    { "id": 1, "disponible": true, "horaEntrada": null, "horaSalida": null, "total": 0 },
+    { "id": 2, "disponible": true, "horaEntrada": null, "horaSalida": null, "total": 0 },
+    { "id": 3, "disponible": true, "horaEntrada": null, "horaSalida": null, "total": 0 },
+    { "id": 4, "disponible": true, "horaEntrada": null, "horaSalida": null, "total": 0 },
+    { "id": 5, "disponible": true, "horaEntrada": null, "horaSalida": null, "total": 0 }
+]
